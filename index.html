@@ -3,113 +3,237 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Ryan Damasco | Web Developer for Scalable & Automated Solutions</title>
+  <title>Ryan Damasco | Finance Automation Specialist</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+
   <style>
     :root {
-      --bg: #0f172a;
-      --panel: #111827;
-      --panel-2: #1f2937;
-      --text: #e5e7eb;
-      --muted: #9ca3af;
-      --accent: #38bdf8;
-      --accent-2: #22c55e;
-      --border: rgba(255,255,255,0.08);
-      --shadow: 0 20px 40px rgba(0,0,0,.25);
-      --radius: 20px;
-      --max: 1180px;
+      --bg: #050b16;
+      --bg-2: #091120;
+      --panel: rgba(10, 18, 35, 0.92);
+      --panel-soft: rgba(14, 24, 44, 0.82);
+      --text: #f3f7ff;
+      --muted: #9ca9c5;
+      --line: rgba(133, 168, 255, 0.14);
+      --blue: #3b82f6;
+      --blue-2: #60a5fa;
+      --cyan: #36c3ff;
+      --glow: rgba(54, 195, 255, 0.22);
+      --green: #44d492;
+      --shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+      --radius-xl: 24px;
+      --radius-lg: 18px;
+      --radius-md: 14px;
+      --max: 1240px;
     }
 
     * { box-sizing: border-box; }
     html { scroll-behavior: smooth; }
     body {
       margin: 0;
-      font-family: Inter, Arial, Helvetica, sans-serif;
+      font-family: 'Inter', Arial, sans-serif;
       color: var(--text);
       background:
-        radial-gradient(circle at top left, rgba(56,189,248,.15), transparent 25%),
-        radial-gradient(circle at top right, rgba(34,197,94,.12), transparent 20%),
-        linear-gradient(180deg, #020617 0%, #0f172a 50%, #111827 100%);
-      line-height: 1.6;
+        radial-gradient(circle at 12% 8%, rgba(59,130,246,.16), transparent 20%),
+        radial-gradient(circle at 85% 14%, rgba(54,195,255,.14), transparent 18%),
+        linear-gradient(180deg, #030814 0%, #07101d 34%, #06101d 100%);
+      line-height: 1.55;
     }
 
     a { color: inherit; text-decoration: none; }
     img { max-width: 100%; display: block; }
 
     .container {
-      width: min(100% - 32px, var(--max));
+      width: min(calc(100% - 32px), var(--max));
       margin: 0 auto;
     }
 
-    .nav {
+    .topbar {
       position: sticky;
       top: 0;
       z-index: 100;
-      backdrop-filter: blur(14px);
-      background: rgba(2, 6, 23, 0.72);
-      border-bottom: 1px solid var(--border);
+      background: rgba(3, 8, 20, 0.82);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
     }
 
-    .nav-inner {
+    .nav {
+      min-height: 76px;
       display: flex;
       align-items: center;
       justify-content: space-between;
-      padding: 14px 0;
+      gap: 20px;
     }
 
     .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+    }
+
+    .brand-mark {
+      width: 42px;
+      height: 42px;
+      border-radius: 12px;
+      display: grid;
+      place-items: center;
+      background: linear-gradient(135deg, rgba(59,130,246,.2), rgba(54,195,255,.12));
+      border: 1px solid rgba(96,165,250,.2);
+      box-shadow: inset 0 0 20px rgba(59,130,246,.12);
+      color: var(--blue-2);
       font-weight: 800;
-      letter-spacing: 0.5px;
+      font-size: 1.1rem;
+    }
+
+    .brand-text strong {
+      display: block;
+      font-size: .98rem;
+      letter-spacing: .02em;
+    }
+
+    .brand-text span {
+      color: var(--muted);
+      font-size: .78rem;
     }
 
     .nav-links {
       display: flex;
-      gap: 18px;
+      align-items: center;
+      gap: 22px;
+      font-size: .93rem;
+      color: #c4d0e7;
       flex-wrap: wrap;
-      color: var(--muted);
-      font-size: 0.95rem;
+      justify-content: center;
+    }
+
+    .nav-links a {
+      position: relative;
+      transition: .2s ease;
+    }
+
+    .nav-links a:hover { color: white; }
+
+    .nav-links a::after {
+      content: '';
+      position: absolute;
+      left: 0;
+      bottom: -8px;
+      width: 0;
+      height: 2px;
+      background: linear-gradient(90deg, var(--blue), var(--cyan));
+      transition: width .2s ease;
+    }
+
+    .nav-links a:hover::after { width: 100%; }
+
+    .nav-cta {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      padding: 11px 16px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #2563eb, #3b82f6 55%, #60a5fa);
+      color: white;
+      font-weight: 700;
+      box-shadow: 0 10px 30px rgba(59,130,246,.28);
     }
 
     .hero {
-      padding: 72px 0 48px;
+      padding: 34px 0 22px;
+    }
+
+    .hero-shell {
+      border: 1px solid rgba(255,255,255,.05);
+      border-radius: 28px;
+      background: linear-gradient(180deg, rgba(7,14,28,.95), rgba(7,15,30,.86));
+      box-shadow: var(--shadow);
+      padding: 18px;
     }
 
     .hero-grid {
       display: grid;
-      grid-template-columns: 1.2fr .8fr;
-      gap: 28px;
+      grid-template-columns: 1.02fr .95fr;
+      gap: 26px;
       align-items: center;
     }
 
-    .badge {
-      display: inline-flex;
-      align-items: center;
-      gap: 8px;
-      background: rgba(56, 189, 248, 0.12);
-      color: #bae6fd;
-      border: 1px solid rgba(56, 189, 248, 0.25);
-      padding: 8px 14px;
-      border-radius: 999px;
-      font-size: 0.9rem;
-      margin-bottom: 18px;
+    .eyebrow {
+      color: #66bbff;
+      font-size: .82rem;
+      font-weight: 700;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      margin-bottom: 10px;
     }
 
     h1 {
-      font-size: clamp(2.2rem, 5vw, 4rem);
-      line-height: 1.05;
-      margin: 0 0 16px;
+      margin: 0;
+      font-size: clamp(2.5rem, 5vw, 4.35rem);
+      line-height: .98;
+      letter-spacing: -0.04em;
+      max-width: 650px;
     }
 
-    .hero p {
-      font-size: 1.08rem;
-      color: var(--muted);
-      max-width: 58ch;
-      margin: 0 0 28px;
+    .accent-line {
+      color: var(--blue-2);
+      display: block;
     }
 
-    .cta-row {
+    .hero-copy {
+      color: #b3c0d7;
+      font-size: 1.04rem;
+      margin: 18px 0 24px;
+      max-width: 610px;
+    }
+
+    .mini-stats {
       display: flex;
       flex-wrap: wrap;
-      gap: 14px;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .mini-stat {
+      min-width: 150px;
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      color: #dbe8ff;
+    }
+
+    .mini-stat i {
+      width: 34px;
+      height: 34px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(96,165,250,.2);
+      color: var(--blue-2);
+      font-size: .88rem;
+      flex: 0 0 auto;
+    }
+
+    .mini-stat strong {
+      display: block;
+      font-size: .96rem;
+      margin-bottom: 2px;
+    }
+
+    .mini-stat span {
+      color: var(--muted);
+      font-size: .79rem;
+      line-height: 1.35;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
       margin-bottom: 28px;
     }
 
@@ -117,152 +241,321 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      padding: 13px 18px;
-      border-radius: 14px;
+      gap: 10px;
+      min-height: 46px;
+      padding: 0 18px;
+      border-radius: 12px;
       font-weight: 700;
       border: 1px solid transparent;
-      transition: .2s ease;
-      cursor: pointer;
-    }
-
-    .btn-primary {
-      background: linear-gradient(135deg, var(--accent), #2563eb);
-      color: white;
-      box-shadow: var(--shadow);
-    }
-
-    .btn-secondary {
-      background: rgba(255,255,255,.04);
-      border-color: var(--border);
-      color: var(--text);
+      transition: transform .2s ease, border-color .2s ease, background .2s ease;
     }
 
     .btn:hover { transform: translateY(-2px); }
 
-    .stats {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 12px;
+    .btn-primary {
+      background: linear-gradient(135deg, #2563eb, #3b82f6 60%, #5ab5ff);
+      color: white;
+      box-shadow: 0 12px 26px rgba(37,99,235,.28);
     }
 
-    .stat, .card, .project-card, .skill-card, .contact-card {
-      background: rgba(17, 24, 39, 0.78);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      box-shadow: var(--shadow);
+    .btn-secondary {
+      background: rgba(255,255,255,.03);
+      color: white;
+      border-color: rgba(255,255,255,.09);
     }
 
-    .stat {
-      padding: 18px;
-    }
-
-    .stat strong {
-      font-size: 1.4rem;
-      display: block;
-      margin-bottom: 4px;
-    }
-
-    .stat span {
+    .tool-strip-label {
       color: var(--muted);
-      font-size: .92rem;
+      font-size: .82rem;
+      margin-bottom: 10px;
     }
 
-    .hero-card {
-      padding: 8px;
-      background: linear-gradient(180deg, rgba(31,41,55,.85), rgba(17,24,39,.9));
-      border: 1px solid var(--border);
-      border-radius: 24px;
-      box-shadow: var(--shadow);
-      min-height: 420px;
-      width: 100%;
+    .tool-strip {
       display: flex;
+      gap: 18px;
+      flex-wrap: wrap;
       align-items: center;
-      justify-content: center;
-      overflow: hidden;
+      color: #d6e3ff;
     }
 
-    .hero-card img {
-      border-radius: 18px;
-      width: 100%;
-      height: 100%;
-      min-height: 400px;
-      object-fit: cover;
-      object-position: center;
-      border: 1px solid var(--border);
-      display: block;
+    .tool-strip span {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      font-size: .9rem;
+      color: #d3def5;
     }
 
-    section {
-      padding: 26px 0 20px;
-    }
-
-    .section-head {
-      display: flex;
-      justify-content: space-between;
-      align-items: end;
-      gap: 16px;
-      margin-bottom: 18px;
-    }
-
-    .section-head h2 {
-      font-size: clamp(1.4rem, 3vw, 2rem);
-      margin: 0;
-    }
-
-    .section-head p {
-      margin: 0;
-      color: var(--muted);
-      max-width: 58ch;
-    }
-
-    .about-grid, .contact-grid {
-      display: grid;
-      grid-template-columns: 1.1fr .9fr;
-      gap: 20px;
-    }
-
-    .card {
-      padding: 22px;
-    }
-
-    .card p, .card li {
-      color: var(--muted);
-    }
-
-    .skill-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 16px;
-    }
-
-    .skill-card {
-      padding: 18px;
-    }
-
-    .skill-card h3 {
-      margin: 0 0 10px;
+    .tool-strip i {
+      color: var(--blue-2);
       font-size: 1rem;
     }
 
-    .chips {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
+    .hero-visual {
+      position: relative;
+      min-height: 580px;
+      border-radius: 24px;
+      overflow: hidden;
+      border: 1px solid rgba(255,255,255,.08);
+      background: linear-gradient(180deg, rgba(13, 25, 46, .95), rgba(9, 17, 32, .98));
     }
 
-    .chip {
-      font-size: .86rem;
-      color: #dbeafe;
-      background: rgba(59, 130, 246, 0.14);
-      border: 1px solid rgba(59,130,246,.28);
-      padding: 7px 10px;
-      border-radius: 999px;
+    .hero-visual img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center;
+    }
+
+    .profile-card {
+      position: absolute;
+      left: 18px;
+      right: 18px;
+      bottom: 18px;
+      background: rgba(8, 14, 27, 0.72);
+      border: 1px solid rgba(255,255,255,.08);
+      backdrop-filter: blur(14px);
+      border-radius: 18px;
+      padding: 16px;
+      box-shadow: 0 14px 28px rgba(0,0,0,.28);
+    }
+
+    .profile-name {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+      margin-bottom: 12px;
+    }
+
+    .profile-name i {
+      width: 38px;
+      height: 38px;
+      border-radius: 50%;
+      display: grid;
+      place-items: center;
+      border: 1px solid rgba(255,255,255,.09);
+      background: rgba(255,255,255,.04);
+      color: #dcebff;
+    }
+
+    .profile-name strong {
+      display: block;
+      font-size: .96rem;
+    }
+
+    .profile-name span {
+      color: var(--muted);
+      font-size: .78rem;
+    }
+
+    .profile-meta {
+      display: grid;
+      gap: 8px;
+      color: #d7e2f6;
+      font-size: .84rem;
+    }
+
+    .profile-meta div {
+      display: flex;
+      align-items: center;
+      gap: 9px;
+    }
+
+    .hero-services {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: repeat(6, 1fr);
+      gap: 14px;
+    }
+
+    .service-card,
+    .panel,
+    .project-card,
+    .exp-card,
+    .tools-bar,
+    .quote-card,
+    .conversation-card {
+      background: linear-gradient(180deg, rgba(9, 17, 33, .88), rgba(8, 14, 28, .94));
+      border: 1px solid rgba(255,255,255,.06);
+      border-radius: 18px;
+      box-shadow: var(--shadow);
+    }
+
+    .service-card {
+      padding: 18px 16px;
+      min-height: 132px;
+    }
+
+    .service-icon {
+      width: 44px;
+      height: 44px;
+      border-radius: 14px;
+      display: grid;
+      place-items: center;
+      background: rgba(59,130,246,.1);
+      border: 1px solid rgba(96,165,250,.18);
+      color: #67b8ff;
+      margin-bottom: 14px;
+    }
+
+    .service-card h3 {
+      margin: 0 0 8px;
+      font-size: .98rem;
+    }
+
+    .service-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+      line-height: 1.45;
+    }
+
+    section {
+      padding: 18px 0;
+    }
+
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 1.02fr .98fr;
+      gap: 16px;
+    }
+
+    .panel {
+      padding: 22px;
+    }
+
+    .section-tag {
+      color: #5eb4ff;
+      font-size: .78rem;
+      font-weight: 700;
+      letter-spacing: .07em;
+      text-transform: uppercase;
+      margin-bottom: 8px;
+    }
+
+    .panel h2, .section-title {
+      margin: 0 0 14px;
+      font-size: clamp(1.45rem, 2.3vw, 2rem);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+    }
+
+    .panel p,
+    .panel li,
+    .subtext {
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    .summary-list {
+      display: grid;
+      gap: 10px;
+    }
+
+    .summary-item {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      padding: 12px 14px;
+      border-radius: 14px;
+      background: rgba(255,255,255,.02);
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .summary-item i {
+      width: 30px;
+      height: 30px;
+      border-radius: 10px;
+      display: grid;
+      place-items: center;
+      color: white;
+      flex: 0 0 auto;
+      font-size: .82rem;
+    }
+
+    .ico-blue { background: rgba(59,130,246,.7); }
+    .ico-sky { background: rgba(14,165,233,.7); }
+    .ico-green { background: rgba(34,197,94,.7); }
+    .ico-yellow { background: rgba(234,179,8,.75); }
+    .ico-orange { background: rgba(249,115,22,.75); }
+
+    .focus-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
+      margin-top: 16px;
+    }
+
+    .focus-card {
+      padding: 14px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(10,18,35,.95), rgba(9,16,30,.92));
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .focus-thumb {
+      width: 100%;
+      aspect-ratio: 1.35 / 1;
+      border-radius: 14px;
+      overflow: hidden;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, rgba(59,130,246,.18), rgba(54,195,255,.08));
+      border: 1px solid rgba(255,255,255,.05);
+    }
+
+    .focus-thumb img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .focus-card h3 {
+      margin: 0 0 8px;
+      font-size: .98rem;
+    }
+
+    .focus-card p {
+      margin: 0;
+      color: var(--muted);
+      font-size: .83rem;
+    }
+
+    .section-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 16px;
+      margin: 12px 0 14px;
+    }
+
+    .section-header .left h2 {
+      margin: 0 0 6px;
+      font-size: 1.5rem;
+    }
+
+    .section-header p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    .outline-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 40px;
+      padding: 0 15px;
+      border-radius: 12px;
+      border: 1px solid rgba(255,255,255,.08);
+      background: rgba(255,255,255,.02);
+      color: white;
+      font-weight: 600;
     }
 
     .projects-grid {
       display: grid;
-      grid-template-columns: repeat(2, 1fr);
-      gap: 20px;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 14px;
     }
 
     .project-card {
@@ -270,10 +563,11 @@
     }
 
     .project-thumb {
-      position: relative;
-      aspect-ratio: 16/10;
-      background: #0b1220;
+      width: 100%;
+      aspect-ratio: 1.48 / 1;
+      background: #091221;
       overflow: hidden;
+      border-bottom: 1px solid rgba(255,255,255,.05);
     }
 
     .project-thumb img {
@@ -283,392 +577,721 @@
     }
 
     .project-content {
-      padding: 20px;
+      padding: 14px;
     }
 
-    .project-title {
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 12px;
-      margin-bottom: 10px;
-    }
-
-    .project-title h3 {
-      margin: 0;
-      font-size: 1.14rem;
+    .project-content h3 {
+      margin: 0 0 8px;
+      font-size: .96rem;
+      line-height: 1.35;
     }
 
     .project-content p {
+      margin: 0 0 10px;
+      font-size: .82rem;
       color: var(--muted);
-      margin: 0 0 16px;
     }
 
-    .project-links {
+    .pill-row {
       display: flex;
-      gap: 12px;
       flex-wrap: wrap;
+      gap: 8px;
     }
 
-    .timeline {
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      min-height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: #d9e8ff;
+      background: rgba(59,130,246,.12);
+      border: 1px solid rgba(96,165,250,.15);
+    }
+
+    .experience-grid {
       display: grid;
-      gap: 14px;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-top: 10px;
     }
 
-    .timeline-item {
-      padding: 18px;
-      border-radius: 18px;
-      border: 1px solid var(--border);
-      background: rgba(255,255,255,.03);
+    .exp-card {
+      padding: 20px;
+      position: relative;
+      overflow: hidden;
+      min-height: 246px;
     }
 
-    .timeline-item strong { display: block; margin-bottom: 6px; }
-    .timeline-item span { color: var(--muted); font-size: .95rem; }
-
-    .contact-card {
-      padding: 22px;
+    .exp-card::before {
+      content: '';
+      position: absolute;
+      top: 22px;
+      left: 22px;
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      box-shadow: 0 0 0 4px rgba(255,255,255,.04);
     }
 
-    .contact-list {
+    .exp-blue::before { background: #4f8eff; }
+    .exp-green::before { background: #4ade80; }
+    .exp-purple::before { background: #c084fc; }
+
+    .exp-date {
+      color: #9ec9ff;
+      font-size: .85rem;
+      font-weight: 700;
+      margin-left: 22px;
+      margin-bottom: 10px;
+      display: block;
+    }
+
+    .exp-card h3 {
+      margin: 0 0 4px;
+      font-size: 1rem;
+      line-height: 1.35;
+    }
+
+    .exp-company {
+      color: #79a9ff;
+      font-size: .84rem;
+      margin-bottom: 12px;
+      display: block;
+    }
+
+    .exp-card p {
+      color: var(--muted);
+      font-size: .86rem;
+      margin: 0 0 14px;
+    }
+
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+    }
+
+    .tag {
+      padding: 6px 10px;
+      border-radius: 999px;
+      font-size: .72rem;
+      font-weight: 600;
+      color: #dce9ff;
+      background: rgba(255,255,255,.045);
+      border: 1px solid rgba(255,255,255,.06);
+    }
+
+    .bottom-grid {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.2fr .95fr .95fr;
+      gap: 16px;
+    }
+
+    .list-clean {
+      margin: 0;
+      padding-left: 18px;
       display: grid;
       gap: 10px;
+    }
+
+    .tools-bar {
+      margin-top: 16px;
+      padding: 16px 18px;
+    }
+
+    .tools-icons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    .tool-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      color: #dce7fa;
+      font-size: .88rem;
+    }
+
+    .tool-item i {
+      color: #78b8ff;
+      font-size: 1.05rem;
+    }
+
+    .quote-row {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1.1fr .9fr;
+      gap: 16px;
+    }
+
+    .quote-card, .conversation-card {
+      padding: 18px 20px;
+    }
+
+    .quote-card blockquote {
+      margin: 0;
+      color: #dce7fb;
+      font-size: .95rem;
+      line-height: 1.65;
+    }
+
+    .quote-card cite {
+      display: block;
+      margin-top: 12px;
       color: var(--muted);
+      font-style: normal;
+      font-size: .82rem;
+    }
+
+    .worked-with {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 22px;
+      align-items: center;
+      color: #edf5ff;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .contact-bar {
+      margin-top: 16px;
+      display: grid;
+      grid-template-columns: 1fr 360px;
+      gap: 16px;
+      align-items: stretch;
+    }
+
+    .contact-footer {
+      padding: 18px 20px;
+      border-radius: 18px;
+      background: linear-gradient(180deg, rgba(9, 17, 33, .92), rgba(7, 13, 25, .98));
+      border: 1px solid rgba(255,255,255,.06);
+      box-shadow: var(--shadow);
+    }
+
+    .contact-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+      margin-top: 14px;
+    }
+
+    .meta-chip {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      min-height: 34px;
+      padding: 0 12px;
+      border-radius: 999px;
+      background: rgba(255,255,255,.03);
+      border: 1px solid rgba(255,255,255,.06);
+      color: #dbe8ff;
+      font-size: .82rem;
+    }
+
+    .conversation-card {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      background: linear-gradient(135deg, rgba(37,99,235,.95), rgba(59,130,246,.9));
+    }
+
+    .conversation-card p { color: rgba(255,255,255,.86); }
+
+    .send-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      min-height: 42px;
+      padding: 0 16px;
+      border-radius: 12px;
+      font-weight: 700;
+      background: rgba(255,255,255,.14);
+      border: 1px solid rgba(255,255,255,.18);
+      color: white;
+      width: fit-content;
     }
 
     footer {
-      padding: 32px 0 52px;
+      padding: 20px 0 32px;
       color: var(--muted);
+      font-size: .84rem;
       text-align: center;
-      font-size: 0.92rem;
     }
 
-    @media (max-width: 900px) {
-      .hero-grid,
-      .about-grid,
-      .contact-grid,
-      .projects-grid,
-      .skill-grid {
-        grid-template-columns: 1fr;
+    @media (max-width: 1180px) {
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: repeat(3, 1fr);
       }
 
-      .stats {
+      .bottom-grid,
+      .contact-bar {
         grid-template-columns: 1fr;
       }
+    }
 
-      .nav-inner {
+    @media (max-width: 980px) {
+      .nav {
         flex-direction: column;
-        gap: 10px;
+        justify-content: center;
+        padding: 14px 0;
       }
+
+      .hero-grid,
+      .grid-2,
+      .experience-grid,
+      .quote-row {
+        grid-template-columns: 1fr;
+      }
+
+      .hero-visual { min-height: 420px; }
+
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: repeat(2, 1fr);
+      }
+    }
+
+    @media (max-width: 640px) {
+      .container { width: min(calc(100% - 20px), var(--max)); }
+      .hero { padding-top: 18px; }
+      .hero-shell { padding: 12px; }
+      h1 { font-size: 2.3rem; }
+      .hero-services,
+      .focus-grid,
+      .projects-grid {
+        grid-template-columns: 1fr;
+      }
+      .nav-links { gap: 14px; }
+      .tools-icons { justify-content: flex-start; }
     }
   </style>
 </head>
 <body>
-  <nav class="nav">
-    <div class="container nav-inner">
-      <div class="brand">Ryan Damasco - Finance Automation Specialist</div>
-      <div class="nav-links">
+  <header class="topbar">
+    <div class="container nav">
+      <a href="#home" class="brand">
+        <div class="brand-mark">RD</div>
+        <div class="brand-text">
+          <strong>Ryan Damasco</strong>
+          <span>Finance Automation Specialist</span>
+        </div>
+      </a>
+
+      <nav class="nav-links">
+        <a href="#home">Home</a>
         <a href="#about">About</a>
-        <a href="#skills">Skills</a>
+        <a href="#expertise">Expertise</a>
         <a href="#projects">Projects</a>
         <a href="#experience">Experience</a>
+        <a href="#certifications">Certifications</a>
         <a href="#contact">Contact</a>
-      </div>
-    </div>
-  </nav>
+      </nav>
 
-  <header class="hero">
-    <div class="container hero-grid">
-      <div>
-        <div class="badge">Remote-ready • WordPress • Shopify • Front-end Execution</div>
-        <h1>Finance Automation Specialist | Software Engineer</h1>
-        <p><h2>I design and build automation systems, web solutions, and e-commerce workflows that improve efficiency and support business operations.</h3></p>
-        <p><h4>4+ years software engineering experience • 6+ years remote work and International experience</h4></p>
-          <p>
-          I’m Ryan Damasco, a Finance Automation Specialist and Software Engineer with 4+ years of software engineering experience and over 6 years of remote work and international experience.
-          I specialize in building automation systems, web solutions, and e-commerce workflows that improve efficiency, reduce manual work, and support business operations. I focus on turning business requirements into structured, scalable, and practical digital solutions.
-        </p>
-        <div class="cta-row">
-          <a class="btn btn-primary" href="#projects">View Projects</a>
-          <a class="btn btn-secondary" href="#contact">Contact Me</a>
-        </div>
-        <div class="stats">
-          <div class="stat">
-              <strong>4+ Years</strong>
-            <span>Software engineering and web development</span>
-          </div>
-          <div class="stat">
-            <strong>6+ Years</strong>
-            <span>Remote work and independent delivery</span>
-          </div>
-          <div class="stat">
-            <strong>Full Funnel</strong>
-            <span>WordPress, Shopify-style pages, visuals, and layout</span>
-          </div>
-        </div>
-      </div>
-      <div class="hero-card">
-        <img src="IMG_3326.png" alt="Sample project hero image" />
-      </div>
+      <a class="nav-cta" href="#contact">
+        Hire Me <i class="fa-solid fa-paper-plane"></i>
+      </a>
     </div>
   </header>
 
-  <main>
+  <main id="home" class="container">
+    <section class="hero">
+      <div class="hero-shell">
+        <div class="hero-grid">
+          <div>
+            <div class="eyebrow">Finance Automation Specialist</div>
+            <h1>
+              Automation. Systems.<br>
+              Web Solutions.<br>
+              <span class="accent-line">Business Growth.</span>
+            </h1>
+
+            <p class="hero-copy">
+              I design and build automation systems, web solutions, and e-commerce workflows that improve efficiency,
+              reduce manual work, and drive measurable business results.
+            </p>
+
+            <div class="mini-stats">
+              <div class="mini-stat">
+                <i class="fa-solid fa-award"></i>
+                <div>
+                  <strong>4+ Years</strong>
+                  <span>Software Engineering</span>
+                </div>
+              </div>
+              <div class="mini-stat">
+                <i class="fa-solid fa-globe"></i>
+                <div>
+                  <strong>6+ Years</strong>
+                  <span>Remote & International</span>
+                </div>
+              </div>
+              <div class="mini-stat">
+                <i class="fa-solid fa-location-dot"></i>
+                <div>
+                  <strong>Global Ready</strong>
+                  <span>Work Anywhere</span>
+                </div>
+              </div>
+            </div>
+
+            <div class="actions">
+              <a class="btn btn-primary" href="#projects">View My Work <i class="fa-solid fa-arrow-right"></i></a>
+              <a class="btn btn-secondary" href="Ryan_Damasco_WebDev.pdf" download>Download CV <i class="fa-solid fa-download"></i></a>
+              <a class="btn btn-secondary" href="mailto:damasco.rbd@gmail.com">Email Me <i class="fa-regular fa-envelope"></i></a>
+            </div>
+
+            <div class="tool-strip-label">Trusted by global tools & platforms</div>
+            <div class="tool-strip">
+              <span><i class="fa-brands fa-aws"></i> AWS</span>
+              <span><i class="fa-brands fa-docker"></i> Docker</span>
+              <span><i class="fa-brands fa-google"></i> Google Cloud</span>
+              <span><i class="fa-brands fa-github"></i> GitHub</span>
+              <span><i class="fa-brands fa-figma"></i> Figma</span>
+              <span><i class="fa-solid fa-diagram-project"></i> n8n</span>
+            </div>
+          </div>
+
+          <div class="hero-visual">
+            <img src="IMG_3326.png" alt="Ryan Damasco portrait" />
+            <div class="profile-card">
+              <div class="profile-name">
+                <i class="fa-regular fa-user"></i>
+                <div>
+                  <strong>Ryan Damasco</strong>
+                  <span>Finance Automation Specialist | Software Engineer</span>
+                </div>
+              </div>
+              <div class="profile-meta">
+                <div><i class="fa-solid fa-location-dot"></i> Philippines</div>
+                <div><i class="fa-regular fa-envelope"></i> damasco.rbd@gmail.com</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div id="expertise" class="hero-services">
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-coins"></i></div>
+          <h3>Finance Automation</h3>
+          <p>Smart workflows & process optimization for faster, cleaner operations.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-laptop-code"></i></div>
+          <h3>Web Development</h3>
+          <p>High-converting websites and responsive web applications.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-cart-shopping"></i></div>
+          <h3>E-commerce Solutions</h3>
+          <p>Shopify-style pages and funnels that convert visitors into buyers.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-layer-group"></i></div>
+          <h3>Workflow Automation</h3>
+          <p>Systems that save time and reduce manual work across teams.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-gear"></i></div>
+          <h3>Business Systems</h3>
+          <p>Scalable solutions for growth, reporting, and operational control.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon"><i class="fa-solid fa-user-check"></i></div>
+          <h3>Remote & Reliable</h3>
+          <p>6+ years delivering strong results for remote and international teams.</p>
+        </article>
+      </div>
+    </section>
+
     <section id="about">
-      <div class="container about-grid">
-        <div class="card">
-          <div class="section-head">
-            <div>
-              <h2>About Me</h2>
-            </div>
+      <div class="grid-2">
+        <article class="panel">
+          <div class="section-tag">About Me</div>
+          <h2>Turning Business Needs Into Smart Solutions</h2>
+          <p>
+            I’m Ryan Damasco, a Finance Automation Specialist and Software Engineer with 4+ years of software engineering
+            experience and over 6 years of remote work experience. I specialize in building automation systems, web solutions,
+            and e-commerce workflows that improve efficiency, reduce manual work, and support business operations.
+          </p>
+          <p>
+            I focus on turning business requirements into structured, scalable, and practical digital solutions that create real impact.
+          </p>
+          <div class="actions" style="margin-top:18px; margin-bottom:0;">
+            <a class="btn btn-secondary" href="#contact">More About Me</a>
           </div>
-          <p>
-            My background combines software engineering, web application development, automation, and front-end implementation. I work best in remote environments where clear execution, clean structure, and attention to detail matter.
-          </p>
-          <p>
-            I’m comfortable turning a brief into a working page, improving usability, and building layouts that are both user-friendly and business-focused. My recent work includes WordPress landing page creation, marketing visuals, and e-commerce style page structures.
-          </p>
+        </article>
+
+        <article class="panel">
+          <div class="section-tag">Quick Value Summary</div>
+          <div class="summary-list">
+            <div class="summary-item"><i class="fa-solid fa-code ico-blue"></i><span>4+ years in software engineering and web development</span></div>
+            <div class="summary-item"><i class="fa-solid fa-globe ico-sky"></i><span>6+ years of remote work and international experience</span></div>
+            <div class="summary-item"><i class="fa-solid fa-file-invoice-dollar ico-green"></i><span>Finance Automation Specialist focused on workflow efficiency</span></div>
+            <div class="summary-item"><i class="fa-solid fa-bullseye ico-yellow"></i><span>Translates business requirements into structured solutions</span></div>
+            <div class="summary-item"><i class="fa-solid fa-link ico-orange"></i><span>Builds systems that connect technical execution with business goals</span></div>
+          </div>
+        </article>
+      </div>
+
+      <div class="section-header" style="margin-top:18px;">
+        <div class="left">
+          <div class="section-tag">Core Focus Areas</div>
         </div>
-        <div class="card">
-          <h2>What I Do</h2>
-          <ul>
-            <li>Build WordPress landing pages and structured content layouts</li>
-            <li>Create Shopify-style product pages and visual funnel sections</li>
-            <li>Design clean web visuals using Canva and AI-assisted assets</li>
-            <li>Handle front-end fixes with HTML, CSS, and JavaScript</li>
-            <li>Support automation and integrations for business workflows</li>
-          </ul>
-        </div>
+      </div>
+
+      <div class="focus-grid">
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Finance automation systems"></div>
+          <h3>Finance Automation Systems</h3>
+          <p>Automate financial processes and reporting for accuracy and efficiency.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Workflow automation"></div>
+          <h3>Workflow Automation & Process Optimization</h3>
+          <p>Streamline operations and eliminate repetitive manual tasks.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Web development"></div>
+          <h3>Web Development (WordPress / Front-end)</h3>
+          <p>Build fast, responsive, and conversion-focused web experiences.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="myproject.png" alt="E-commerce funnels"></div>
+          <h3>E-commerce Pages & Funnels</h3>
+          <p>Create high-converting product pages and sales funnels.</p>
+        </article>
+        <article class="focus-card">
+          <div class="focus-thumb"><img src="IMAGE.png" alt="Business systems"></div>
+          <h3>Business Systems Design & Implementation</h3>
+          <p>Design scalable business systems that support long-term growth.</p>
+        </article>
       </div>
     </section>
 
-    <section id="skills">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Skills & Tools</h2>
-            <p>Focused on practical execution for web projects,</p><p>landing pages, and e-commerce support.</p>
-          </div>
-        </div>
-        <div class="skill-grid">
-          <div class="skill-card">
-            <h3>Web & E-commerce</h3>
-            <div class="chips">
-              <span class="chip">WordPress</span>
-              <span class="chip">Shopify-style Pages</span>
-              <span class="chip">Responsive Layout</span>
-              <span class="chip">Landing Pages</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Front-end</h3>
-            <div class="chips">
-              <span class="chip">HTML</span>
-              <span class="chip">CSS</span>
-              <span class="chip">Python</span>
-              <span class="chip">Java</span>
-              <span class="chip">JavaScript</span>
-              <span class="chip">Angular</span>
-              <span class="chip">Vue.js</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Back-end & APIs</h3>
-            <div class="chips">
-              <span class="chip">Node.js</span>
-              <span class="chip">BigQuery</span>
-              <span class="chip">Django</span>
-              <span class="chip">Java</span>
-              <span class="chip">.NET</span>
-              <span class="chip">REST APIs</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Design & Content</h3>
-            <div class="chips">
-              <span class="chip">Canva</span>
-              <span class="chip">Figma</span>
-              <span class="chip">Product Mockups</span>
-              <span class="chip">Marketing Visuals</span>
-              <span class="chip">AI Image Tools</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Automation & CRM</h3>
-            <div class="chips">
-              <span class="chip">GoHighLevel</span>
-              <span class="chip">Claude</span>
-              <span class="chip">n8n</span>
-              <span class="chip">Salesforce</span>
-              <span class="chip">Power Automate</span>
-              <span class="chip">Power BI</span>
-              <span class="chip">Excel VBA</span>
-              <span class="chip">Process Automation</span>
-            </div>
-          </div>
-          <div class="skill-card">
-            <h3>Developer Tools</h3>
-            <div class="chips">
-              <span class="chip">AWS</span>
-              <span class="chip">Docker</span>
-              <span class="chip">Git</span>
-              <span class="chip">Postman</span>
-            </div>
-          </div>
-           <div class="skill-card">
-            <h3>Accounting Tools</h3>
-            <div class="chips">
-              <span class="chip">NetSuits</span>
-              <span class="chip">QuickBooks</span>
-              <span class="chip">SAP</span>
-              <span class="chip">Xero</span>
-              </div>
-            </div>
-      </div>
-    </section>
     <section id="projects">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Featured Projects</h2>
-            <p>Sample work that reflects my web, e-commerce, and front-end execution skills.</p>
+      <div class="section-header">
+        <div class="left">
+          <div class="section-tag">Featured Projects</div>
+          <h2>Selected Work</h2>
+          <p>Practical web, automation, and e-commerce work aligned with the design shown in your reference.</p>
+        </div>
+        <a class="outline-btn" href="#contact">View All Projects</a>
+      </div>
+
+      <div class="projects-grid">
+        <article class="project-card">
+          <div class="project-thumb"><img src="myproject.png" alt="Pet Hair Remover Landing Page" /></div>
+          <div class="project-content">
+            <h3>Pet Hair Remover Landing Page</h3>
+            <p>Conversion-focused landing page built to highlight product value, benefits, and a strong CTA flow.</p>
+            <div class="pill-row"><span class="pill">WordPress</span><span class="pill">Landing Page</span></div>
           </div>
-        </div>
+        </article>
 
-        <div class="projects-grid">
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="myproject.png" alt="WordPress landing page sample" />
-            </div>
-            <div class="project-content">
-              <div class="project-title">
-                <h3>Pet Hair Remover Landing Page</h3>
-                <span class="chip">WordPress</span>
-              </div>
-              <p>
-                A conversion-focused landing page built around a product problem, visual proof, benefits, and CTA flow. Designed to demonstrate practical page structure for e-commerce funnels.
-              </p>
-              <div class="chips" style="margin-bottom:16px;">
-                <span class="chip">Landing Page</span>
-                <span class="chip">CTA Flow</span>
-                <span class="chip">Visual Hierarchy</span>
-                <span class="chip">Product Marketing</span>
-              </div>
-              <div class="project-links">
-                <a class="btn btn-primary" href="https://furliftdemo.wordpress.com/struggling-with-pet-hair-all-over-your-home/" target="_blank" rel="noopener">Live Page</a>
-              </div>
-            </div>
-          </article>
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Enterprise Web Application" /></div>
+          <div class="project-content">
+            <h3>Enterprise Web Application</h3>
+            <p>Scalable application work with dashboards, reports, and user-friendly interfaces for enterprise use.</p>
+            <div class="pill-row"><span class="pill">Engineering</span><span class="pill">Web App</span></div>
+          </div>
+        </article>
 
-          <article class="project-card">
-            <div class="project-thumb">
-              <img src="IMAGE.png" alt="Web application project sample" />
-            </div>
-            <div class="project-content">
-              <div class="project-title">
-                <h3>Enterprise Web & Automation Work</h3>
-                <span class="chip">Engineering</span>
-              </div>
-              <p>
-                Professional experience building enterprise web applications, automation flows, CRM-connected systems, and front-end improvements using Java, Angular, .NET, and cloud tools.
-              </p>
-              <div class="chips" style="margin-bottom:16px;">
-                <span class="chip">Web Apps</span>
-                <span class="chip">Automation</span>
-                <span class="chip">APIs</span>
-                <span class="chip">CRM Integration</span>
-              </div>
-              <div class="project-links">
-                <a class="btn btn-secondary" href="#experience">See Experience</a>
-              </div>
-            </div>
-          </article>
-        </div>
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Automation Workflow System" /></div>
+          <div class="project-content">
+            <h3>Automation Workflow System</h3>
+            <p>Automated workflow connecting apps and APIs to reduce manual tasks and improve speed.</p>
+            <div class="pill-row"><span class="pill">n8n / API</span><span class="pill">Automation</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="myproject.png" alt="E-commerce Product Page" /></div>
+          <div class="project-content">
+            <h3>E-commerce Product Page</h3>
+            <p>Shopify-style product page with upsell logic, review structure, and optimized purchase flow.</p>
+            <div class="pill-row"><span class="pill">Shopify-style</span><span class="pill">Funnel</span></div>
+          </div>
+        </article>
+
+        <article class="project-card">
+          <div class="project-thumb"><img src="IMAGE.png" alt="Business Intelligence Dashboard" /></div>
+          <div class="project-content">
+            <h3>Business Intelligence Dashboard</h3>
+            <p>Interactive dashboard for tracking KPIs, performance, trends, and business metrics.</p>
+            <div class="pill-row"><span class="pill">Power BI</span><span class="pill">Dashboard</span></div>
+          </div>
+        </article>
       </div>
     </section>
 
     <section id="experience">
-      <div class="container">
-        <div class="section-head">
-          <div>
-            <h2>Work Experience</h2>
-            <p>A blend of software engineering, teaching, automation, and remote execution experience.</p>
-          </div>
-        </div>
-
-        <div class="timeline">
-          <div class="timeline-item">
-            <strong>Application System Engineer — Weserv System International Inc. (Fujitsu)</strong>
-            <span>2022 – Present</span>
-            <p>Built and maintained enterprise web applications, REST APIs, automation workflows, UI improvements, and scalable system enhancements across remote and collaborative environments.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>IT Instructor — STI College</strong>
-            <span>2021 – 2022</span>
-            <p>Taught web development, guided students in real-world projects, and reinforced practical coding and collaboration skills.</p>
-          </div>
-          <div class="timeline-item">
-            <strong>Accounting Staff / IT Specialist / Remote Roles</strong>
-            <span>2016 – 2021</span>
-            <p>Handled reporting automation, IT support, process improvement, and remote task delivery across different business functions.</p>
-          </div>
+      <div class="section-header">
+        <div class="left">
+          <div class="section-tag">Professional Experience</div>
+          <h2>Experience That Connects Tech and Operations</h2>
         </div>
       </div>
-    </section>
 
-    <section id="contact">
-      <div class="container contact-grid">
-        <div class="contact-card">
-          <div class="section-head">
-            <div>
-              <h2>Let’s Work Together</h2>
-              <p>I’m open to remote opportunities in Finance Automation, web development, WordPress, e-commerce, and front-end execution roles.</p>
-            </div>
+      <div class="experience-grid">
+        <article class="exp-card exp-blue">
+          <span class="exp-date">2022 – Present</span>
+          <h3>Application System Engineer</h3>
+          <span class="exp-company">Weserv System International Inc. (Fujitsu)</span>
+          <p>Built and maintained enterprise web applications, REST APIs, automation workflows, and scalable system enhancements.</p>
+          <div class="tag-row">
+            <span class="tag">Java</span>
+            <span class="tag">Angular</span>
+            <span class="tag">.NET</span>
+            <span class="tag">APIs</span>
+            <span class="tag">Cloud</span>
           </div>
-          <div class="contact-list">
-            <div><strong>Email:</strong> damasco.rbd@gmail.com</div>
-            <div><strong>Location:</strong> Philippines</div>
-            <div><strong>Focus:</strong> WordPress, Shopify-style pages, landing pages, front-end execution</div>
+        </article>
+
+        <article class="exp-card exp-green">
+          <span class="exp-date">2021 – 2022</span>
+          <h3>IT Instructor</h3>
+          <span class="exp-company">STI College</span>
+          <p>Taught web development, guided students in practical projects, and strengthened real-world coding and collaboration skills.</p>
+          <div class="tag-row">
+            <span class="tag">Teaching</span>
+            <span class="tag">Web Dev</span>
+            <span class="tag">Mentoring</span>
           </div>
-        </div>
-        <div class="contact-card">
-          <h2>Quick Value Summary</h2>
-          <ul>
-            <li>4+ years in software engineering and web development/li>
-            <li>6+ years of remote work and International experience </li>
-            <li>Finance Automation Specialist focused on workflow efficiency and system improvement</li>
-            <li>Translates business requirements into structured web and automation solutions</li>
-            <li>Builds systems that connect technical execution with business goals</li>
-          </ul>
-        </div>
-         <div class="contact-card">
-          <h2>Core Focus Areas</h2>
-          <ul>
-            <li>Finance Automation Systems</li>
-            <li>Workflow Automation & Process Optimization </li>
-            <li>Web Development (WordPress / Front-end)</li>
-            <li>E-commerce Pages & Funnels (Shopify-style builds)</li>
-            <li>Business Systems Design & Implementation</li>
-          </ul>
+        </article>
+
+        <article class="exp-card exp-purple">
+          <span class="exp-date">2016 – 2021</span>
+          <h3>Accounting Staff / IT Specialist / Remote Roles</h3>
+          <span class="exp-company">Operations, Reporting, and Support</span>
+          <p>Handled reporting automation, IT support, process improvement, and remote task delivery across multiple functions.</p>
+          <div class="tag-row">
+            <span class="tag">Automation</span>
+            <span class="tag">IT Support</span>
+            <span class="tag">Reporting</span>
           </div>
-          <div class="contact-card">
-          <h2>Certification</h2>
-          <ul>
+        </article>
+      </div>
+
+      <div class="bottom-grid">
+        <article id="certifications" class="panel">
+          <div class="section-tag">Certifications</div>
+          <ul class="list-clean">
             <li>Certified QB Online Accounting</li>
-            <li>QB ProAdvisor </li>
-            <li>Certified SAP Trainor</li>   
+            <li>QB ProAdvisor</li>
+            <li>Certified SAP Trainer</li>
           </ul>
-          <div class="cta-row" style="margin-top: 18px; margin-bottom: 0;">
-            <a class="btn btn-primary" href="https://mail.google.com/mail/?view=cm&fs=1&to=damasco.rbd@gmail.com" target="_blank">
-  Email Me</a>
+        </article>
+
+        <article class="panel">
+          <div class="section-tag">Why Work With Me?</div>
+          <ul class="list-clean">
+            <li>Detail-oriented and result-driven</li>
+            <li>Strong communication and collaboration skills</li>
+            <li>Committed to deadlines and quality</li>
+            <li>Continuous learner and problem solver</li>
+            <li>Focused on long-term business value</li>
+          </ul>
+        </article>
+
+        <article class="panel" id="contact">
+          <div class="section-tag">Let’s Work Together</div>
+          <p>I’m open to remote opportunities in Finance Automation, web development, WordPress, e-commerce, and front-end execution worldwide.</p>
+          <div class="actions" style="margin-top:18px; margin-bottom:0;">
+            <a class="btn btn-primary" href="mailto:damasco.rbd@gmail.com">Email Me</a>
             <a class="btn btn-secondary" href="Ryan_Damasco_WebDev.pdf" download>Download CV</a>
           </div>
+        </article>
+      </div>
+
+      <div class="tools-bar">
+        <div class="section-tag">Tools & Technologies</div>
+        <div class="tools-icons">
+          <span class="tool-item"><i class="fa-brands fa-wordpress"></i> WordPress</span>
+          <span class="tool-item"><i class="fa-brands fa-shopify"></i> Shopify</span>
+          <span class="tool-item"><i class="fa-brands fa-html5"></i> HTML5</span>
+          <span class="tool-item"><i class="fa-brands fa-css3-alt"></i> CSS3</span>
+          <span class="tool-item"><i class="fa-brands fa-js"></i> JavaScript</span>
+          <span class="tool-item"><i class="fa-brands fa-python"></i> Python</span>
+          <span class="tool-item"><i class="fa-brands fa-java"></i> Java</span>
+          <span class="tool-item"><i class="fa-brands fa-angular"></i> Angular</span>
+          <span class="tool-item"><i class="fa-brands fa-vuejs"></i> Vue</span>
+          <span class="tool-item"><i class="fa-brands fa-node-js"></i> Node.js</span>
+          <span class="tool-item"><i class="fa-solid fa-code"></i> .NET</span>
+          <span class="tool-item"><i class="fa-brands fa-django"></i> Django</span>
+          <span class="tool-item"><i class="fa-brands fa-aws"></i> AWS</span>
+          <span class="tool-item"><i class="fa-brands fa-docker"></i> Docker</span>
+          <span class="tool-item"><i class="fa-brands fa-git-alt"></i> Git</span>
+          <span class="tool-item"><i class="fa-brands fa-figma"></i> Figma</span>
+          <span class="tool-item"><i class="fa-solid fa-pen-ruler"></i> Canva</span>
+          <span class="tool-item"><i class="fa-solid fa-diagram-project"></i> n8n</span>
+          <span class="tool-item"><i class="fa-solid fa-robot"></i> Power Automate</span>
+          <span class="tool-item"><i class="fa-solid fa-chart-column"></i> Power BI</span>
+          <span class="tool-item"><i class="fa-brands fa-salesforce"></i> Salesforce</span>
+          <span class="tool-item"><i class="fa-solid fa-vial"></i> Postman</span>
         </div>
+      </div>
+
+      <div class="quote-row">
+        <article class="quote-card">
+          <div class="section-tag">What Clients Say</div>
+          <blockquote>
+            “Ryan is professional, reliable, and delivers high-quality work. He understands business needs and turns them into effective digital solutions.”
+          </blockquote>
+          <cite>— International Client</cite>
+        </article>
+
+        <article class="quote-card">
+          <div class="section-tag">I’ve Worked With</div>
+          <div class="worked-with">
+            <span>Fujitsu</span>
+            <span>STI College</span>
+            <span>Upwork</span>
+            <span>Freelancer</span>
+            <span>LinkedIn</span>
+          </div>
+        </article>
+      </div>
+
+      <div class="contact-bar">
+        <article class="contact-footer">
+          <div class="section-tag">Ready to Build Something Great?</div>
+          <p class="subtext">Let’s connect and create automation systems and web solutions that drive real business results.</p>
+          <div class="contact-meta">
+            <span class="meta-chip"><i class="fa-regular fa-envelope"></i> damasco.rbd@gmail.com</span>
+            <span class="meta-chip"><i class="fa-solid fa-location-dot"></i> Philippines</span>
+            <span class="meta-chip"><i class="fa-solid fa-circle-check"></i> Available for Remote Work</span>
+          </div>
+        </article>
+
+        <article class="conversation-card">
+          <div>
+            <div class="section-tag" style="color: rgba(255,255,255,.82);">Let’s Start a Conversation</div>
+            <h2 class="section-title" style="margin-bottom:8px;">I’ll respond as soon as possible</h2>
+            <p>Send a message for automation systems, front-end work, business tools, or e-commerce support.</p>
+          </div>
+          <a class="send-btn" href="mailto:damasco.rbd@gmail.com">Send Message <i class="fa-solid fa-paper-plane"></i></a>
+        </article>
       </div>
     </section>
   </main>
 
   <footer>
-    <div class="container"> © 2026 Ryan Damasco | Finance Automation Specialist Portfolio.</div>
+    <div class="container">© 2026 Ryan Damasco | Finance Automation Specialist Portfolio. All rights reserved.</div>
   </footer>
 </body>
 </html>
